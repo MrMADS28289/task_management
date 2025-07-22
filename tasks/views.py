@@ -1,13 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from tasks.forms import TaskForm, TaskModelForm, TaskDetailModelForm
-from tasks.models import Task, TaskDetail, Project
-from datetime import date
-from django.db.models import Q, Count, Max, Min, Avg
+from tasks.forms import TaskModelForm, TaskDetailModelForm
+from tasks.models import Task, Project
+from django.db.models import Q, Count
 from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test, login_required, permission_required
 from users.views import is_admin
-from django.http import HttpResponse
 from django.views import View
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -255,8 +253,8 @@ def view_task(request):
     return render(request, "show_task.html", {"projects": projects})
 
 
-view_project_decorators = [login_required, permission_required(
-    "projects.view_project", login_url='no-permission')]
+view_project_decorators = (login_required, permission_required(
+    "projects.view_project", login_url='no-permission'))
 
 
 @method_decorator(view_project_decorators, name='dispatch')
@@ -271,23 +269,7 @@ class ViewProject(ListView):
         return queryset
 
 
-@login_required
-@permission_required("tasks.view_task", login_url='no-permission')
-def task_details(request, task_id):
-    task = Task.objects.get(id=task_id)
-    status_choices = Task.STATUS_CHOICES
-
-    if request.method == 'POST':
-        selected_status = request.POST.get('task_status')
-        # print(selected_status)
-        task.status = selected_status
-        task.save()
-        return redirect('task-details', task.id)
-
-    return render(request, 'task_details.html', {"task": task, 'status_choices': status_choices})
-
-
-class TaskDetail(DetailView):
+class TaskDetailView(DetailView):
     model = Task
     template_name = 'task_details.html'
     context_object_name = 'task'

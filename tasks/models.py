@@ -8,21 +8,21 @@ class Task(models.Model):
         ('IN_PROGRESS', 'In Progress'),
         ('COMPLETED', 'Completed')
     ]
-    project = models.ForeignKey(
+    project: models.ForeignKey = models.ForeignKey(
         "Project",
         on_delete=models.CASCADE,
         default=1
     )
     # assigned_to = models.ManyToManyField(Employee, related_name='tasks')
-    assigned_to = models.ManyToManyField(
+    assigned_to: models.ManyToManyField = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name='tasks')
-    title = models.CharField(max_length=250)
-    description = models.TextField()
-    due_date = models.DateField()
-    status = models.CharField(
+    title: models.CharField = models.CharField(max_length=250)
+    description: models.TextField = models.TextField()
+    due_date: models.DateField = models.DateField()
+    status: models.CharField = models.CharField(
         max_length=15, choices=STATUS_CHOICES, default="PENDING")
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at: models.DateTimeField = models.DateTimeField(auto_now_add=True)
+    updated_at: models.DateTimeField = models.DateTimeField(auto_now=True)
     # details
 
     def __str__(self):
@@ -38,25 +38,25 @@ class TaskDetail(models.Model):
         (MEDIUM, 'Medium'),
         (LOW, 'Low')
     )
-    task = models.OneToOneField(
+    task: models.OneToOneField = models.OneToOneField(
         Task,
         on_delete=models.DO_NOTHING,
         related_name='details',
     )
-    asset = models.ImageField(upload_to='tasks_asset',  blank=True, null=True,
+    asset: models.ImageField = models.ImageField(upload_to='tasks_asset',  blank=True, null=True,
                               default="tasks_asset/default_img.jpg")
-    priority = models.CharField(
+    priority: models.CharField = models.CharField(
         max_length=1, choices=PRIORITY_OPTIONS, default=LOW)
-    notes = models.TextField(blank=True, null=True)
+    notes: models.TextField = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f"Details form Task {self.task.title}"
 
 
 class Project(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField(blank=True, null=True)
-    start_date = models.DateField()
+    name: models.CharField = models.CharField(max_length=100)
+    description: models.TextField = models.TextField(blank=True, null=True)
+    start_date: models.DateField = models.DateField()
 
     def __str__(self):
         return self.name

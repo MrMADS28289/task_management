@@ -2,7 +2,8 @@ import os
 import django
 from faker import Faker
 import random
-from tasks.models import Employee, Project, Task, TaskDetail
+from users.models import CustomUser
+from tasks.models import Project, Task, TaskDetail
 
 # Set up Django environment
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'task_management.settings')
@@ -24,11 +25,12 @@ def populate_db():
     print(f"Created {len(projects)} projects.")
 
     # Create Employees
-    employees = [Employee.objects.create(
-        name=fake.name(),
-        email=fake.email()
+    custom_users = [CustomUser.objects.create(
+        username=fake.user_name(),
+        email=fake.email(),
+        password='password123' # You might want to use a more secure way to set passwords
     ) for _ in range(10)]
-    print(f"Created {len(employees)} employees.")
+    print(f"Created {len(custom_users)} custom users.")
 
     # Create Tasks
     tasks = []
@@ -41,7 +43,7 @@ def populate_db():
             status=random.choice(['PENDING', 'IN_PROGRESS', 'COMPLETED']),
             is_completed=random.choice([True, False])
         )
-        task.assigned_to.set(random.sample(employees, random.randint(1, 3)))
+        task.assigned_to.set(random.sample(custom_users, random.randint(1, 3)))
         tasks.append(task)
     print(f"Created {len(tasks)} tasks.")
 
@@ -50,7 +52,7 @@ def populate_db():
         TaskDetail.objects.create(
             task=task,
             assigned_to=", ".join(
-                [emp.name for emp in task.assigned_to.all()]),
+                [user.username for user in task.assigned_to.all()]),
             priority=random.choice(['H', 'M', 'L']),
             notes=fake.paragraph()
         )
