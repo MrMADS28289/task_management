@@ -56,9 +56,28 @@ class EditProfileView(UpdateView):
     def get_object(self):
         return self.request.user
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if 'form' not in context:
+            context['form'] = self.get_form()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
     def form_valid(self, form):
         form.save()
-        return redirect('profile')
+        messages.success(self.request, "Profile updated successfully!")
+        return render(self.request, self.template_name, self.get_context_data(form=form))
+
+    def form_invalid(self, form):
+        messages.error(self.request, "Please correct the errors below.")
+        return render(self.request, self.template_name, self.get_context_data(form=form))
 
 
 def is_admin(user):

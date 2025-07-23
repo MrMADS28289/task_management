@@ -101,6 +101,26 @@
                 .then(html => {
                     profileContent.innerHTML = html;
                     setActiveLink(activeLink);
+
+                    const form = profileContent.querySelector('form');
+                    if (form) {
+                        form.addEventListener('submit', function(event) {
+                            event.preventDefault();
+                            const formData = new FormData(form);
+                            fetch(form.action, {
+                                method: 'POST',
+                                body: formData,
+                                headers: {
+                                    'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+                                }
+                            })
+                            .then(response => response.text())
+                            .then(data => {
+                                profileContent.innerHTML = data; // Re-render the form with messages/errors
+                            })
+                            .catch(error => console.error('Error submitting form:', error));
+                        });
+                    }
                 })
                 .catch(error => console.error('Error loading content:', error));
         }
