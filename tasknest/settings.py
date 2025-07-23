@@ -13,9 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS: list[str] = []
+ALLOWED_HOSTS: list[str] = ['.yourdomain.com', 'your_production_ip'] # Replace with your actual domain and IP
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -30,13 +30,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tasks',
     'users',
-    "debug_toolbar",
     'core',
     'widget_tweaks'
 ]
 
 MIDDLEWARE = [
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -44,12 +42,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
-INTERNAL_IPS = [
-    # ...
-    "127.0.0.1",
-    # ...
 ]
 
 ROOT_URLCONF = 'task_management.urls'
@@ -70,7 +62,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'task_management.wsgi.application'
+WSGI_APPLICATION = 'tasknest.wsgi.application'
 
 
 # Database
@@ -98,13 +90,15 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'task_management',
-        'USER': 'postgres',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT')
     }
 }
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 # Password validation
