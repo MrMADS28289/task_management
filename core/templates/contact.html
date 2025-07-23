@@ -9,7 +9,17 @@
         <p class="text-lg text-text-muted dark:text-text-muted-dark mb-12">Have questions, feedback, or just want to say hello? We'd love to hear from you!</p>
 
         <div class="max-w-xl mx-auto bg-surface dark:bg-surface-dark p-8 rounded-lg shadow-lg">
+            {% if messages %}
+                <div class="mb-4 text-center">
+                    {% for message in messages %}
+                        <div class="p-3 text-sm {% if message.tags == 'success' %}text-green-700 bg-green-100 dark:bg-green-800 dark:text-green-400{% elif message.tags == 'error' %}text-red-700 bg-red-100 dark:bg-red-800 dark:text-red-400{% else %}text-blue-700 bg-blue-100 dark:bg-blue-800 dark:text-blue-400{% endif %} rounded-lg" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
             <form action="{% url 'contact' %}" method="POST" class="space-y-6">
+                {% csrf_token %}
                 <div>
                     <label for="name" class="block text-left text-text-primary dark:text-text-primary-dark text-sm font-bold mb-2">Name</label>
                     <input type="text" id="name" name="name" class="shadow appearance-none border border-border dark:border-border-dark rounded w-full py-3 px-4 text-text-primary dark:text-text-primary-dark leading-tight focus:outline-none focus:shadow-outline bg-background dark:bg-background-dark" placeholder="Your Name">
