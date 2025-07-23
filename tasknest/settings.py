@@ -15,7 +15,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS: list[str] = ['.yourdomain.com', 'your_production_ip'] # Replace with your actual domain and IP
+ALLOWED_HOSTS: list[str] = ['tasknest-7qex.onrender.com']
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -77,7 +77,7 @@ DATABASES = {
     }
 }
 
-# PostgresQL (Comment this out for local development if using SQLite)
+# PostgresQL (Production - using environment variables)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -88,6 +88,18 @@ DATABASES = {
         'PORT': config('DB_PORT')
     }
 }
+
+# PostgresQL (Hardcoded for testing/specific deployment)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'task_management',
+#         'USER': 'postgres',
+#         'PASSWORD': 'password',
+#         'HOST': 'localhost',
+#         'PORT': '5432'
+#     }
+# }
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
