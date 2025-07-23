@@ -5,20 +5,20 @@
    <div class="grid grid-cols-4 gap-6 my-8">
     <!-- Total Task  -->
     <a href="{% url 'manager-dashboard' %}">
-    <div class="bg-white rounded-xl p-6 shadow-sm">
-      <h3 class="text-sm font-medium text-gray-500 mb-4">TOTAL TASK</h3>
+    <div class="bg-surface dark:bg-surface-dark rounded-xl p-6 shadow-sm">
+      <h3 class="text-sm font-medium text-text-muted dark:text-text-muted-dark mb-4">TOTAL TASK</h3>
       <div class="flex justify-between items-start">
         <div>
-          <p class="text-3xl font-semibold mb-1"> {{ counts.total }} </p>
-          <p class="text-gray-500 text-sm">11 last month</p>
+          <p class="text-3xl font-semibold mb-1 text-text-primary dark:text-text-primary-dark"> {{ counts.total }} </p>
+          <p class="text-text-muted dark:text-text-muted-dark text-sm">11 last month</p>
         </div>
-        <div class="bg-blue-100 p-3 rounded-full">
+        <div class="bg-primary-light p-3 rounded-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            class="w-6 h-6 text-blue-600"
+            class="w-6 h-6 text-primary dark:text-primary-dark"
           >
             <path
               stroke-linecap="round"
@@ -33,23 +33,23 @@
   </a>
     <!-- Completed Task  -->
   <a href="{% url 'manager-dashboard' %}?type=completed">
-    <div class="bg-white rounded-xl p-6 shadow-sm">
-      <h3 class="text-sm font-medium text-gray-500 mb-4">
+    <div class="bg-surface dark:bg-surface-dark rounded-xl p-6 shadow-sm">
+      <h3 class="text-sm font-medium text-text-muted dark:text-text-muted-dark mb-4">
         COMPLETED TASK
       </h3>
       <div class="flex justify-between items-start">
         <div>
-          <p class="text-3xl font-semibold mb-1">{{counts.completed}} </p>
-          <p class="text-gray-500 text-sm">11 last month</p>
+          <p class="text-3xl font-semibold mb-1 text-text-primary dark:text-text-primary-dark">{{counts.completed}} </p>
+          <p class="text-text-muted dark:text-text-muted-dark text-sm">11 last month</p>
         </div>
-        <div class="bg-green-100 p-3 rounded-full">
+        <div class="bg-accent p-3 rounded-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="2"
             stroke="currentColor"
-            class="w-6 h-6 text-green-600"
+            class="w-6 h-6 text-accent dark:text-accent-dark"
           >
             <path
               stroke-linecap="round"
@@ -62,23 +62,23 @@
     </div>
   </a>
     <!-- Task In Progress  -->
-    <div class="bg-white rounded-xl p-6 shadow-sm">
-      <h3 class="text-sm font-medium text-gray-500 mb-4">
+    <div class="bg-surface dark:bg-surface-dark rounded-xl p-6 shadow-sm">
+      <h3 class="text-sm font-medium text-text-muted dark:text-text-muted-dark mb-4">
         TASK IN PROGRESS
       </h3>
       <div class="flex justify-between items-start">
         <div>
-          <p class="text-3xl font-semibold mb-1"> {{counts.in_progress}} </p>
-          <p class="text-gray-500 text-sm">11 last month</p>
+          <p class="text-3xl font-semibold mb-1 text-text-primary dark:text-text-primary-dark"> {{counts.in_progress}} </p>
+          <p class="text-text-muted dark:text-text-muted-dark text-sm">11 last month</p>
         </div>
-        <div class="bg-yellow-100 p-3 rounded-full">
+        <div class="bg-warning p-3 rounded-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="2"
             stroke="currentColor"
-            class="w-6 h-6 text-yellow-600"
+            class="w-6 h-6 text-warning dark:text-warning-dark"
           >
             <path
               stroke-linecap="round"
@@ -89,12 +89,12 @@
         </div>
       </div>
     </div>
-    <div class="bg-white rounded-xl p-6 shadow-sm">
-      <h3 class="text-sm font-medium text-gray-500 mb-4">TODOS</h3>
+    <div class="bg-surface dark:bg-surface-dark rounded-xl p-6 shadow-sm">
+      <h3 class="text-sm font-medium text-text-muted dark:text-text-muted-dark mb-4">TODOS</h3>
       <div class="flex justify-between items-start">
         <div>
-          <p class="text-3xl font-semibold mb-1"> {{counts.pending}} </p>
-          <p class="text-gray-500 text-sm">11 last month</p>
+          <p class="text-3xl font-semibold mb-1 text-text-primary dark:text-text-primary-dark"> {{counts.pending}} </p>
+          <p class="text-text-muted dark:text-text-muted-dark text-sm">11 last month</p>
         </div>
         <div class="bg-purple-100 p-3 rounded-full">
           <svg
@@ -118,7 +118,7 @@
   <div>
     {% if messages %}
         {% for message in messages %}
-            <div class="px-2 py-1 {% if message.tags == 'success' %}bg-green-500{% endif %} ">{{message}}</div>
+            <div class="px-2 py-1 {% if message.tags == 'success' %}bg-accent{% endif %} text-text-primary dark:text-text-primary-dark">{{message}}</div>
         {% endfor %}
     {% endif %}
 </div>

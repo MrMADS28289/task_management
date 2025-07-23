@@ -2,37 +2,37 @@
 {% block title %}User Dashboard{% endblock title %}
 {% block tasks %}
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-  <div class="bg-white p-6 rounded-lg shadow">
-    <h2 class="text-2xl font-bold mb-4">Today's Tasks</h2>
+  <div class="bg-surface dark:bg-surface-dark p-6 rounded-lg shadow">
+    <h2 class="text-2xl font-bold mb-4 text-text-primary dark:text-text-primary-dark">Today's Tasks</h2>
     <ul class="space-y-4">
       <li class="flex items-center justify-between">
         <div class="flex items-center">
-          <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-          <span>Complete project proposal</span>
+          <span class="w-2 h-2 bg-accent dark:bg-accent-dark rounded-full mr-2"></span>
+          <span class="text-text-primary dark:text-text-primary-dark">Complete project proposal</span>
         </div>
-        <span class="text-sm text-gray-500">High</span>
+        <span class="text-sm text-text-muted dark:text-text-muted-dark">High</span>
       </li>
       <li class="flex items-center justify-between">
         <div class="flex items-center">
-          <span class="w-2 h-2 bg-yellow-500 rounded-full mr-2"></span>
-          <span>Review team updates</span>
+          <span class="w-2 h-2 bg-warning dark:bg-warning-dark rounded-full mr-2"></span>
+          <span class="text-text-primary dark:text-text-primary-dark">Review team updates</span>
         </div>
-        <span class="text-sm text-gray-500">Normal</span>
+        <span class="text-sm text-text-muted dark:text-text-muted-dark">Normal</span>
       </li>
       <li class="flex items-center justify-between">
         <div class="flex items-center">
-          <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-          <span>Prepare for client meeting</span>
+          <span class="w-2 h-2 bg-primary dark:bg-primary-dark rounded-full mr-2"></span>
+          <span class="text-text-primary dark:text-text-primary-dark">Prepare for client meeting</span>
         </div>
-        <span class="text-sm text-gray-500">Low</span>
+        <span class="text-sm text-text-muted dark:text-text-muted-dark">Low</span>
       </li>
     </ul>
   </div>
-  <div class="bg-white p-6 rounded-lg shadow">
-    <h2 class="text-2xl font-bold mb-4">All Tasks</h2>
+  <div class="bg-surface dark:bg-surface-dark p-6 rounded-lg shadow">
+    <h2 class="text-2xl font-bold mb-4 text-text-primary dark:text-text-primary-dark">All Tasks</h2>
     <table class="w-full">
       <thead>
-        <tr class="text-left text-gray-500">
+        <tr class="text-left text-text-muted dark:text-text-muted-dark">
           <th class="pb-2">TASK TITLE</th>
           <th class="pb-2">PRIORITY</th>
           <th class="pb-2">TEAM</th>
@@ -44,112 +44,112 @@
           <td class="py-2">
             <div class="flex items-center">
               <span
-                class="w-2 h-2 bg-green-500 rounded-full mr-2"
+                class="w-2 h-2 bg-accent dark:bg-accent-dark rounded-full mr-2"
               ></span>
-              <span>Test Low Task</span>
+              <span class="text-text-primary dark:text-text-primary-dark">Test Low Task</span>
             </div>
           </td>
           <td class="py-2">
             <span
-              class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm"
+              class="bg-primary-light text-primary dark:text-primary-dark px-2 py-1 rounded text-sm"
               >Low</span
             >
           </td>
           <td class="py-2">
             <div class="flex -space-x-2">
               <div
-                class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs"
+                class="w-6 h-6 rounded-full bg-primary dark:bg-primary-dark flex items-center justify-center text-text-primary-dark text-xs"
               >
                 CA
               </div>
               <div
-                class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white text-xs"
+                class="w-6 h-6 rounded-full bg-accent dark:bg-accent-dark flex items-center justify-center text-text-primary-dark text-xs"
               >
                 JS
               </div>
               <div
-                class="w-6 h-6 rounded-full bg-yellow-500 flex items-center justify-center text-white text-xs"
+                class="w-6 h-6 rounded-full bg-warning dark:bg-warning-dark flex items-center justify-center text-text-primary-dark text-xs"
               >
                 B
               </div>
             </div>
           </td>
-          <td class="py-2 text-sm text-gray-500">9 months ago</td>
+          <td class="py-2 text-sm text-text-muted dark:text-text-muted-dark">9 months ago</td>
         </tr>
         <tr>
           <td class="py-2">
             <div class="flex items-center">
               <span
-                class="w-2 h-2 bg-yellow-500 rounded-full mr-2"
+                class="w-2 h-2 bg-warning dark:bg-warning-dark rounded-full mr-2"
               ></span>
-              <span>Test task</span>
+              <span class="text-text-primary dark:text-text-primary-dark">Test task</span>
             </div>
           </td>
           <td class="py-2">
             <span
-              class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm"
+              class="bg-background dark:bg-background-dark text-text-primary dark:text-text-primary-dark px-2 py-1 rounded text-sm"
               >Normal</span
             >
           </td>
           <td class="py-2">
             <div class="flex -space-x-2">
               <div
-                class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-white text-xs"
+                class="w-6 h-6 rounded-full bg-error dark:bg-error-dark flex items-center justify-center text-text-primary-dark text-xs"
               >
                 AJ
               </div>
               <div
-                class="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center text-white text-xs"
+                class="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center text-text-primary-dark text-xs"
               >
                 EV
               </div>
               <div
-                class="w-6 h-6 rounded-full bg-yellow-500 flex items-center justify-center text-white text-xs"
+                class="w-6 h-6 rounded-full bg-warning dark:bg-warning-dark flex items-center justify-center text-text-primary-dark text-xs"
               >
                 B
               </div>
             </div>
           </td>
-          <td class="py-2 text-sm text-gray-500">9 months ago</td>
+          <td class="py-2 text-sm text-text-muted dark:text-text-muted-dark">9 months ago</td>
         </tr>
         <tr>
           <td class="py-2">
             <div class="flex items-center">
-              <span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
-              <span>Test task</span>
+              <span class="w-2 h-2 bg-error dark:bg-error-dark rounded-full mr-2"></span>
+              <span class="text-text-primary dark:text-text-primary-dark">Test task</span>
             </div>
           </td>
           <td class="py-2">
             <span
-              class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm"
+              class="bg-error dark:bg-error-dark text-text-primary-dark px-2 py-1 rounded text-sm"
               >High</span
             >
           </td>
           <td class="py-2">
             <div class="flex -space-x-2">
               <div
-                class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs"
+                class="w-6 h-6 rounded-full bg-primary dark:bg-primary-dark flex items-center justify-center text-text-primary-dark text-xs"
               >
                 CA
               </div>
               <div
-                class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white text-xs"
+                class="w-6 h-6 rounded-full bg-accent dark:bg-accent-dark flex items-center justify-center text-text-primary-dark text-xs"
               >
                 JS
               </div>
               <div
-                class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-white text-xs"
+                class="w-6 h-6 rounded-full bg-error dark:bg-error-dark flex items-center justify-center text-text-primary-dark text-xs"
               >
                 AJ
               </div>
               <div
-                class="w-6 h-6 rounded-full bg-yellow-500 flex items-center justify-center text-white text-xs"
+                class="w-6 h-6 rounded-full bg-warning dark:bg-warning-dark flex items-center justify-center text-text-primary-dark text-xs"
               >
                 B
               </div>
             </div>
           </td>
-          <td class="py-2 text-sm text-gray-500">10 months ago</td>
+          <td class="py-2 text-sm text-text-muted dark:text-text-muted-dark">10 months ago</td>
         </tr>
       </tbody>
     </table>

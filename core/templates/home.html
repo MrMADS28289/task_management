@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 <!-- Hero Section -->
-<section class="bg-blue-600 text-white py-32 md:py-40">
+<section class="bg-primary text-text-primary-dark py-32 md:py-40">
     <div class="container mx-auto px-6 text-center">
       <h1 class="text-4xl md:text-5xl font-bold mb-6">
-        Streamline Your Workflow with TaskMaster
+        Streamline Your Workflow with TaskNest
       </h1>
       <p class="text-xl mb-12">
         Empower your team with our intuitive task management solution
       </p>
       <a
-        href="#"
-        class="bg-white text-blue-600 px-8 py-4 rounded-md font-semibold text-lg hover:bg-gray-100 transition duration-300"
+        href="{% url 'sign-up' %}"
+        class="bg-surface text-primary px-8 py-4 rounded-md font-semibold text-lg hover:bg-background transition duration-300"
         >Get Started</a
       >
     </div>
@@ -20,14 +20,14 @@
   <!-- Features Section -->
   <section class="py-24 md:py-32">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-16">
+      <h2 class="text-3xl font-bold text-center mb-16 text-text-primary dark:text-text-primary-dark">
         Tailored for Every Role
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
         <!-- Admin Card -->
-        <div class="bg-white rounded-lg shadow-md p-8">
-          <h3 class="text-2xl font-semibold mb-6">Admin</h3>
-          <ul class="list-disc list-inside text-gray-600 space-y-3">
+        <div class="bg-surface dark:bg-surface-dark rounded-lg shadow-md p-8">
+          <h3 class="text-2xl font-semibold mb-6 text-text-primary dark:text-text-primary-dark">Admin</h3>
+          <ul class="list-disc list-inside text-text-muted dark:text-text-muted-dark space-y-3">
             <li>Manage user roles and permissions</li>
             <li>Generate comprehensive reports</li>
             <li>Configure system-wide settings</li>
@@ -35,9 +35,9 @@
           </ul>
         </div>
         <!-- Manager Card -->
-        <div class="bg-white rounded-lg shadow-md p-8">
-          <h3 class="text-2xl font-semibold mb-6">Manager</h3>
-          <ul class="list-disc list-inside text-gray-600 space-y-3">
+        <div class="bg-surface dark:bg-surface-dark rounded-lg shadow-md p-8">
+          <h3 class="text-2xl font-semibold mb-6 text-text-primary dark:text-text-primary-dark">Manager</h3>
+          <ul class="list-disc list-inside text-text-muted dark:text-text-muted-dark space-y-3">
             <li>Create and assign tasks to employees</li>
             <li>Track project progress in real-time</li>
             <li>Set deadlines and priorities</li>
@@ -45,9 +45,9 @@
           </ul>
         </div>
         <!-- Employee Card -->
-        <div class="bg-white rounded-lg shadow-md p-8">
-          <h3 class="text-2xl font-semibold mb-6">Employee</h3>
-          <ul class="list-disc list-inside text-gray-600 space-y-3">
+        <div class="bg-surface dark:bg-surface-dark rounded-lg shadow-md p-8">
+          <h3 class="text-2xl font-semibold mb-6 text-text-primary dark:text-text-primary-dark">Employee</h3>
+          <ul class="list-disc list-inside text-text-muted dark:text-text-muted-dark space-y-3">
             <li>View and manage assigned tasks</li>
             <li>Collaborate with team members</li>
             <li>Update task status and progress</li>
@@ -59,19 +59,19 @@
   </section>
 
   <!-- Call to Action -->
-  <section class="bg-gray-200 py-24 md:py-32">
+  <section class="bg-background dark:bg-background-dark py-24 md:py-32">
     <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-6">
+      <h2 class="text-3xl font-bold mb-6 text-text-primary dark:text-text-primary-dark">
         Ready to Boost Your Team's Productivity?
       </h2>
-      <p class="text-xl mb-12">
-        Join thousands of organizations already using TaskMaster
+      <p class="text-xl mb-12 text-text-muted dark:text-text-muted-dark">
+        Join thousands of organizations already using TaskNest
       </p>
       <a
-        href="#"
-        class="bg-blue-500 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-blue-600 transition duration-300"
-        >Start Free Trial</a
-      >
+          href="{% url 'sign-up' %}"
+          class="bg-primary dark:bg-primary-dark text-text-primary-dark px-6 py-3 rounded-md hover:bg-primary-hover dark:hover:bg-primary-dark-hover transition duration-300"
+          >Start Free Trial</a
+        >
     </div>
   </section>
   {% endblock %}

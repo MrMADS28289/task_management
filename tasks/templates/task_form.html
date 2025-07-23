@@ -1,28 +1,49 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/output.css' %}">
-</head>
-<body>
-    <div class="w-1/2 mx-auto mt-8">
-        <div>
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="px-2 py-1 {% if message.tags == 'success' %}bg-green-500{% endif %} ">{{message}}</div>
-                {% endfor %}
-            {% endif %}
-        </div>
-        <form method="POST" enctype='multipart/form-data'>
-            
-            {% csrf_token %}
-            {{ task_form }}
-            {{ task_detail_form }}
-            <button type="submit" class="mb-5 bg-rose-600 px-3 py-2 text-white mt-2 rounded-md">Submit</button>
-        </form>
+
+{% block title %}Task Form{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8 max-w-2xl bg-background dark:bg-background-dark text-text-primary dark:text-text-primary-dark">
+    <h1 class="text-3xl font-bold mb-6 text-center">Task Form</h1>
+    <div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="px-2 py-1 {% if message.tags == 'success' %}bg-accent dark:bg-accent-dark{% endif %} text-text-primary dark:text-text-primary-dark mb-4 rounded">{{message}}</div>
+            {% endfor %}
+        {% endif %}
     </div>
-</body>
-</html>
+    <form method="POST" enctype='multipart/form-data' class="bg-surface dark:bg-surface-dark p-6 rounded-lg shadow-md">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="{{ task_form.title.id_for_label }}" class="block text-sm font-medium text-text-primary dark:text-text-primary-dark">{{ task_form.title.label }}</label>
+            {{ task_form.title }}
+        </div>
+        <div class="mb-4">
+            <label for="{{ task_form.assigned_to.id_for_label }}" class="block text-sm font-medium text-text-primary dark:text-text-primary-dark">{{ task_form.assigned_to.label }}</label>
+            {{ task_form.assigned_to }}
+        </div>
+        <div class="mb-4">
+            <label for="{{ task_form.project.id_for_label }}" class="block text-sm font-medium text-text-primary dark:text-text-primary-dark">{{ task_form.project.label }}</label>
+            {{ task_form.project }}
+        </div>
+        <div class="mb-4">
+            <label for="{{ task_detail_form.description.id_for_label }}" class="block text-sm font-medium text-text-primary dark:text-text-primary-dark">{{ task_detail_form.description.label }}</label>
+            {{ task_detail_form.description }}
+        </div>
+        <div class="mb-4">
+            <label for="{{ task_detail_form.priority.id_for_label }}" class="block text-sm font-medium text-text-primary dark:text-text-primary-dark">{{ task_detail_form.priority.label }}</label>
+            {{ task_detail_form.priority }}
+        </div>
+        <div class="mb-4">
+            <label for="{{ task_detail_form.due_date.id_for_label }}" class="block text-sm font-medium text-text-primary dark:text-text-primary-dark">{{ task_detail_form.due_date.label }}</label>
+            {{ task_detail_form.due_date }}
+        </div>
+        <div class="mb-4">
+            <label for="{{ task_detail_form.asset.id_for_label }}" class="block text-sm font-medium text-text-primary dark:text-text-primary-dark">{{ task_detail_form.asset.label }}</label>
+            {{ task_detail_form.asset }}
+        </div>
+        <button type="submit" class="mb-5 bg-primary dark:bg-primary-dark hover:bg-primary-hover dark:hover:bg-primary-dark-hover px-3 py-2 text-text-primary-dark mt-2 rounded-md">Submit</button>
+    </form>
+</div>
+{% endblock content %}

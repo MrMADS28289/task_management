@@ -1,24 +1,24 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    
-        {% for name in names %}
-            {% if not name == 'John' %}
-                <p>{{ name }}</p>
-            {% endif %}
-        {% endfor %}
-        
-    {% with a=10 %} 
-        <div> value of a: {{a}}</div>
-    {% endwith %}
-    {{count}}
-    
-</body>
-</html>
+
+{% block title %}Test Page{% endblock %}
+
+{% block content %}
+<section class="py-10 bg-background dark:bg-background-dark text-text-primary dark:text-text-primary-dark">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-8">Test Content</h2>
+        <div class="bg-surface dark:bg-surface-dark shadow-md rounded-lg p-6">
+            {% for name in names %}
+                {% if not name == 'John' %}
+                    <p class="text-lg">{{ name }}</p>
+                {% endif %}
+            {% endfor %}
+            
+            {% with a=10 %} 
+                <div class="mt-4 text-lg">Value of a: {{ a }}</div>
+            {% endwith %}
+            <p class="mt-2 text-lg">Count: {{ count }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>You do not have permission to access this page</h2>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}No Permission{% endblock %}
+
+{% block content %}
+<section class="py-20 bg-background dark:bg-background-dark text-text-primary dark:text-text-primary-dark">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold mb-6">You do not have permission to access this page</h2>
+        <p class="text-lg text-text-muted dark:text-text-muted-dark">Please contact an administrator if you believe this is an error.</p>
+    </div>
+</section>
+{% endblock %}

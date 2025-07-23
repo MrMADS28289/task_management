@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Features{% endblock %}
+
+{% block content %}
+<section class="py-20 bg-background dark:bg-background-dark">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl font-bold text-text-primary dark:text-text-primary-dark mb-6">Powerful Features to Boost Your Productivity</h2>
+        <p class="text-lg text-text-muted dark:text-text-muted-dark mb-12">Discover how TaskNest can streamline your workflow and help you achieve your goals.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="bg-surface dark:bg-surface-dark p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="text-blue-500 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M12 15h.01"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-text-primary dark:text-text-primary-dark mb-4">Task Management</h3>
+                <p class="text-text-muted dark:text-text-muted-dark">Organize, prioritize, and track your tasks with ease. Set due dates, assignees, and statuses to stay on top of everything.</p>
+            </div>
+
+            <div class="bg-surface dark:bg-surface-dark p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="text-accent mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-text-primary dark:text-text-primary-dark mb-4">Team Collaboration</h3>
+                <p class="text-text-muted dark:text-text-muted-dark">Collaborate seamlessly with your team. Share tasks, leave comments, and keep everyone in sync.</p>
+            </div>
+
+            <div class="bg-surface dark:bg-surface-dark p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="text-purple-500 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-text-primary dark:text-text-primary-dark mb-4">Progress Tracking</h3>
+                <p class="text-text-muted dark:text-text-muted-dark">Monitor project progress with intuitive dashboards and reports. Identify bottlenecks and ensure timely completion.</p>
+            </div>
+
+            <div class="bg-surface dark:bg-surface-dark p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="text-error mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-text-primary dark:text-text-primary-dark mb-4">Reminders & Notifications</h3>
+                <p class="text-text-muted dark:text-text-muted-dark">Never miss a deadline with automated reminders and real-time notifications for important updates.</p>
+            </div>
+
+            <div class="bg-surface dark:bg-surface-dark p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="text-warning mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-text-primary dark:text-text-primary-dark mb-4">Customizable Workflows</h3>
+                <p class="text-text-muted dark:text-text-muted-dark">Adapt TaskNest to your unique needs with flexible and customizable workflow options.</p>
+            </div>
+
+            <div class="bg-surface dark:bg-surface-dark p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="text-indigo-500 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-text-primary dark:text-text-primary-dark mb-4">Integrations</h3>
+                <p class="text-text-muted dark:text-text-muted-dark">Connect with your favorite tools and services to create a centralized hub for all your work.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
