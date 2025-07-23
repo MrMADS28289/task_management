@@ -1,5 +1,5 @@
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'task_management.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tasknest.settings')
 import django
 django.setup()
 

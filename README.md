@@ -86,7 +86,7 @@ Follow these steps to set up and run the project locally.
 ### 1. Clone the repository
 
 ```bash
-git clone <repository_url>
+git clone <[repository_url](https://github.com/MrMADS28289/task_management)>
 cd tasknest
 ```
 

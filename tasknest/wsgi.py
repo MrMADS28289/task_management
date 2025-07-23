@@ -1,5 +1,5 @@
 """
-WSGI config for task_management project.
+WSGI config for tasknest project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

@@ -1,5 +1,5 @@
 """
-ASGI config for task_management project.
+ASGI config for tasknest project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

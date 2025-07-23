@@ -44,7 +44,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'task_management.urls'
+ROOT_URLCONF = 'tasknest.urls'
 
 TEMPLATES = [
     {
@@ -70,15 +70,6 @@ WSGI_APPLICATION = 'tasknest.wsgi.application'
 
 # For SQLite
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# For SQLite
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -86,7 +77,7 @@ DATABASES = {
     }
 }
 
-# PostgresQL
+# PostgresQL (Comment this out for local development if using SQLite)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
