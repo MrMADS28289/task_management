@@ -13,13 +13,13 @@
         <div class="hidden md:flex space-x-4">
           <a
             href="{% url 'dashboard' %}"
-            class="text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark"
+            class="{% if request.resolver_match.url_name == 'dashboard' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark"
             >Dashboard</a
           >
-          <a href="{% url 'view-task' %}" class="text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark">Tasks</a>
+          <a href="{% url 'view-task' %}" class="{% if request.resolver_match.url_name == 'view-task' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark">Tasks</a>
           <a
             href="{% url 'create-task' %}"
-            class="text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark"
+            class="{% if request.resolver_match.url_name == 'create-task' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark"
             >Create Task</a
           >
         </div>
@@ -105,16 +105,16 @@
         </div>
       </div>
       <div id="mobile-menu" class="md:hidden hidden mt-4">
-        <a href="{% url 'dashboard' %}" class="block py-2 text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark"
+        <a href="{% url 'dashboard' %}" class="block py-2 {% if request.resolver_match.url_name == 'dashboard' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark"
           >Dashboard</a
         >
-        <a href="{% url 'view-task' %}" class="block py-2 text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark"
+        <a href="{% url 'view-task' %}" class="block py-2 {% if request.resolver_match.url_name == 'view-task' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark"
           >Tasks</a
         >
-        <a href="{% url 'group-list' %}" class="block py-2 text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark"
+        <a href="{% url 'group-list' %}" class="block py-2 {% if request.resolver_match.url_name == 'group-list' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark"
           >Groups</a
         >
-        <a href="{% url 'create-group' %}" class="block py-2 text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark"
+        <a href="{% url 'create-group' %}" class="block py-2 {% if request.resolver_match.url_name == 'create-group' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark"
           >Create Group</a
         >
       </div>

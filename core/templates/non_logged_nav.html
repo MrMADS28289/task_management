@@ -11,10 +11,10 @@
             </svg>
         </a>
         <div class="hidden md:flex space-x-4">
-          <a href="{% url 'features' %}" class="text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark">Features</a>
-          <a href="{% url 'pricing' %}" class="text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark">Pricing</a>
-          <a href="{% url 'about' %}" class="text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark">About</a>
-          <a href="{% url 'contact' %}" class="text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark">Contact</a>
+          <a href="{% url 'features' %}" class="{% if request.resolver_match.url_name == 'features' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark">Features</a>
+          <a href="{% url 'pricing' %}" class="{% if request.resolver_match.url_name == 'pricing' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark">Pricing</a>
+          <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark">About</a>
+          <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark">Contact</a>
         </div>
         <div class="md:hidden">
           <button
@@ -67,16 +67,16 @@
         </div>
       </div>
       <div id="mobile-menu" class="md:hidden hidden mt-4">
-        <a href="{% url 'features' %}" class="block py-2 text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark"
+        <a href="{% url 'features' %}" class="block py-2 {% if request.resolver_match.url_name == 'features' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark"
           >Features</a
         >
-        <a href="{% url 'pricing' %}" class="block py-2 text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark"
+        <a href="{% url 'pricing' %}" class="block py-2 {% if request.resolver_match.url_name == 'pricing' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark"
           >Pricing</a
         >
-        <a href="{% url 'about' %}" class="block py-2 text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark"
+        <a href="{% url 'about' %}" class="block py-2 {% if request.resolver_match.url_name == 'about' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark"
           >About</a
         >
-        <a href="{% url 'contact' %}" class="block py-2 text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark"
+        <a href="{% url 'contact' %}" class="block py-2 {% if request.resolver_match.url_name == 'contact' %}text-primary dark:text-primary-dark{% else %}text-text-muted dark:text-text-muted-dark{% endif %} hover:text-text-primary dark:hover:text-text-primary-dark"
           >Contact</a
         >
         <a href="{% url 'sign-in' %}" class="block py-2 text-text-muted dark:text-text-muted-dark hover:text-text-primary dark:hover:text-text-primary-dark"
