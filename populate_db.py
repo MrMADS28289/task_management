@@ -1,13 +1,12 @@
 import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'task_management.settings')
 import django
+django.setup()
+
 from faker import Faker
 import random
 from users.models import CustomUser
 from tasks.models import Project, Task, TaskDetail
-
-# Set up Django environment
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'task_management.settings')
-django.setup()
 
 # Function to populate the database
 
@@ -40,8 +39,7 @@ def populate_db():
             title=fake.sentence(),
             description=fake.paragraph(),
             due_date=fake.date_this_year(),
-            status=random.choice(['PENDING', 'IN_PROGRESS', 'COMPLETED']),
-            is_completed=random.choice([True, False])
+            status=random.choice(['PENDING', 'IN_PROGRESS', 'COMPLETED'])
         )
         task.assigned_to.set(random.sample(custom_users, random.randint(1, 3)))
         tasks.append(task)
@@ -51,10 +49,12 @@ def populate_db():
     for task in tasks:
         TaskDetail.objects.create(
             task=task,
-            assigned_to=", ".join(
-                [user.username for user in task.assigned_to.all()]),
             priority=random.choice(['H', 'M', 'L']),
             notes=fake.paragraph()
         )
     print("Populated TaskDetails for all tasks.")
     print("Database populated successfully!")
+
+
+if __name__ == "__main__":
+    populate_db()

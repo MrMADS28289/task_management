@@ -72,10 +72,9 @@ def sign_up(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.set_password(form.cleaned_data.get('password1'))
-            user.is_active = False
+            user.is_active = True
             user.save()
-            messages.success(
-                request, 'A Confirmation mail sent. Please check your email')
+            messages.success(request, 'Registration successful. You can now log in.')
             return redirect('sign-in')
 
         else:

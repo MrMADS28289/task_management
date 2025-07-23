@@ -1,135 +1,164 @@
 # Task Management System
 
-This is a web-based Task Management System built with Django, designed to help users organize and manage their tasks efficiently. It includes user authentication, task creation, assignment, and various dashboards for different user roles.
+This is a web-based task management system built with Django for the backend and Tailwind CSS for the frontend.
 
 ## Features
 
--   **User Authentication:** Secure user registration, login, logout, password change, and profile management.
--   **Role-Based Access Control:** Different dashboards and permissions for regular users and managers/administrators.
--   **Task Management:** Create, view, update, and delete tasks.
--   **Task Assignment:** Assign tasks to specific users.
--   **User Profiles:** View and update user profile information, including profile images.
--   **Database Seeding:** Script to populate the database with sample data for quick setup.
--   **Responsive Design:** Styled with Tailwind CSS for a modern and responsive user interface.
+- User authentication (signup, login, logout)
+- Custom user profiles with profile images and bios
+- Task creation, assignment, and management
+- Project management
+- Task details with priority and notes
+- Image uploads for tasks and user profiles
 
-## Technologies Used
+## Setup and Installation
 
-**Backend:**
--   Python 3.x
--   Django (Web Framework)
--   SQLite (Default Database)
--   Pillow (for image processing)
--   Django Crispy Forms
+Follow these steps to set up and run the project locally.
 
-**Frontend:**
--   HTML5
--   CSS3 (Tailwind CSS)
--   JavaScript
--   PostCSS
--   Autoprefixer
+### Prerequisites
 
-## Prerequisites
+- Python 3.x
+- Node.js and npm
+- PostgreSQL
 
-Before you begin, ensure you have the following installed on your system:
+### 1. Clone the repository
 
--   Python 3.x
--   pip (Python package installer)
--   Node.js and npm (Node Package Manager)
+```bash
+git clone <repository_url>
+cd task-management
+```
 
-## Setup Instructions
+### 2. Create a Python Virtual Environment
 
-Follow these steps to get the project up and running on your local machine:
+```bash
+python -m venv task_env
+# On Windows
+.\task_env\Scripts\activate
+# On macOS/Linux
+source task_env/bin/activate
+```
 
-1.  **Clone the repository:**
-    ```bash
-    git clone <repository_url>
-    cd task-management
-    ```
-    *(Replace `<repository_url>` with the actual URL of your Git repository)*
+### 3. Install Python Dependencies
 
-2.  **Create and activate a Python virtual environment:**
-    ```bash
-    python -m venv task_env
-    # On Windows
-    .\task_env\Scripts\activate
-    # On macOS/Linux
-    source task_env/bin/activate
-    ```
+```bash
+pip install -r requirements.txt
+```
 
-3.  **Install Python dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+### 4. Install Node.js Dependencies
 
-4.  **Install Node.js dependencies:**
-    ```bash
-    npm install
-    ```
+```bash
+npm install
+```
 
-5.  **Run database migrations:**
-    ```bash
-    python manage.py migrate
-    ```
+### 5. Environment Variables
 
-6.  **Create a superuser (administrator account):**
-    ```bash
-    python manage.py createsuperuser
-    ```
-    Follow the prompts to create your admin username, email, and password.
+Create a `.env` file in the root directory of the project and add the following:
 
-7.  **Optional: Populate the database with sample data:**
-    ```bash
-    python manage.py runscript populate_db
-    ```
-    This script will create some sample users, tasks, and groups.
+```
+SECRET_KEY=your_secret_key_here
+DEBUG=True
+DB_PORT=5432
+EMAIL_HOST=your_email_host
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER=your_email@example.com
+EMAIL_HOST_PASSWORD=your_email_password
+```
 
-8.  **Build Tailwind CSS:**
-    To compile your Tailwind CSS, you can run:
-    ```bash
-    npm run build:css
-    ```
-    For development, you can run a watcher that rebuilds CSS on changes:
-    ```bash
-    npm run watch:css
-    ```
+To generate a `SECRET_KEY`, run:
 
-9.  **Run the Django development server:**
-    ```bash
-    python manage.py runserver
-    ```
+```bash
+python generate_secret_key.py
+```
 
-    The application will be accessible at `http://127.0.0.1:8000/` in your web browser.
+### 6. Database Setup (PostgreSQL)
 
-## Project Structure (High-Level)
+Ensure you have PostgreSQL running. Then, connect to your PostgreSQL server and create a database named `task_management`.
 
-The project is organized into several Django applications:
+```sql
+CREATE DATABASE task_management;
+```
 
--   `core/`: Contains core functionalities like base templates, home page, and general static files.
--   `users/`: Handles all user-related functionalities, including authentication (registration, login, logout), user profiles, and admin functionalities for managing users and groups.
--   `tasks/`: Manages all task-related operations, including creating, viewing, updating, and deleting tasks, as well as dashboards for task overview.
--   `task_management/`: The main Django project configuration, including `settings.py`, `urls.py`, `wsgi.py`, and `asgi.py`.
+### 7. Run Migrations
 
-## Database Schema (Key Models)
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
 
--   `CustomUser`: Extends Django's default `AbstractUser` for custom user fields.
--   `Profile`: Stores additional user profile information, including profile images.
--   `Task`: Represents a task with details like title, description, due date, status, and assigned user.
--   `TaskDetail`: (If applicable, based on `tasks/models.py` content) Provides additional details or relationships for tasks.
+### 8. Build Tailwind CSS
 
-## Usage
+```bash
+npm run build:tailwind
+```
 
-After starting the server, navigate to `http://127.0.0.1:8000/`.
+### 9. Run the Development Server
 
--   **Register/Login:** Create a new account or log in with an existing one.
--   **Dashboard:** Access your personalized dashboard based on your user role.
--   **Manage Tasks:** Create new tasks, view existing ones, update their status, or assign them to other users.
--   **Profile:** Update your profile information and image.
+```bash
+python manage.py runserver
+```
+
+The application will be accessible at `http://127.0.0.1:8000/`.
+
+## Linting and Type Checking
+
+### Ruff (Linting)
+
+```bash
+ruff check . --fix
+```
+
+### Mypy (Type Checking)
+
+```bash
+mypy .
+```
+
+## Populating the Database (Optional)
+
+To populate your database with sample data, run:
+
+```bash
+python populate_db.py
+```
+
+## Project Structure
+
+```
+.env
+manage.py
+requirements.txt
+package.json
+...
+core/
+    models.py
+    views.py
+    ...
+tasks/
+    models.py
+    views.py
+    ...
+users/
+    models.py
+    views.py
+    ...
+task_management/
+    settings.py
+    urls.py
+    ...
+static/
+    css/
+    js/
+    images/
+media/
+    profile_images/
+    tasks_asset/
+```
 
 ## Contributing
 
-Contributions are welcome! Please feel free to fork the repository, create a new branch, and submit a pull request.
+Feel free to fork the repository and contribute. Pull requests are welcome.
 
 ## License
 
-This project is licensed under the MIT License - see the `LICENSE` file for details. (If you have a LICENSE file, otherwise remove this section or specify your license.)
-
+[Specify your license here, e.g., MIT License]

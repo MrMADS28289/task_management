@@ -4,11 +4,10 @@ from tasks.forms import TaskModelForm, TaskDetailModelForm
 from tasks.models import Task, Project
 from django.db.models import Q, Count
 from django.contrib import messages
-from django.contrib.auth.decorators import user_passes_test, login_required, permission_required
+from django.contrib.auth.decorators import permission_required
 from users.views import is_admin
 from django.views import View
 from django.utils.decorators import method_decorator
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic.base import ContextMixin
 from django.views.generic import ListView, DetailView, UpdateView
