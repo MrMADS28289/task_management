@@ -12,20 +12,21 @@
         <nav class="mt-6">
           <a
             href="{% url 'profile' %}"
-            class="block py-2 px-4 text-text-primary dark:text-text-primary-dark bg-background dark:bg-background-dark hover:bg-background dark:hover:bg-background-dark"
+            id="profile-link"
+            class="block py-2 px-4 text-text-primary dark:text-text-primary-dark hover:bg-background dark:hover:bg-background-dark"
             >Profile</a
           >
-          <a href="{% url 'edit_profile' %}" class="block py-2 px-4 text-text-primary dark:text-text-primary-dark hover:bg-background dark:hover:bg-background-dark"
+          <a href="javascript:void(0);" id="edit-profile-link" data-url="{% url 'edit_profile' %}" class="block py-2 px-4 text-text-primary dark:text-text-primary-dark hover:bg-background dark:hover:bg-background-dark"
             >Edit Profile</a
           >
-          <a href="{% url 'password_change' %}" class="block py-2 px-4 text-text-primary dark:text-text-primary-dark hover:bg-background dark:hover:bg-background-dark"
+          <a href="javascript:void(0);" id="change-password-link" data-url="{% url 'password_change' %}" class="block py-2 px-4 text-text-primary dark:text-text-primary-dark hover:bg-background dark:hover:bg-background-dark"
             >Change Password</a
           >
         </nav>
       </aside>
 
       <!-- Main Content -->
-      <main class="flex-1 p-8">
+      <main id="profile-content" class="flex-1 p-8">
         <h1 class="text-3xl font-bold text-text-primary dark:text-text-primary-dark mb-8">User Profile</h1>
 
         <div class="bg-surface dark:bg-surface-dark shadow-md rounded-lg p-6">
@@ -79,4 +80,45 @@
       </main>
     </div>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const profileContent = document.getElementById('profile-content');
+        const sidebarLinks = document.querySelectorAll('aside nav a');
+        const profileLink = document.getElementById('profile-link');
+        const editProfileLink = document.getElementById('edit-profile-link');
+        const changePasswordLink = document.getElementById('change-password-link');
+
+        function setActiveLink(activeLink) {
+            sidebarLinks.forEach(link => {
+                link.classList.remove('bg-background', 'dark:bg-background-dark');
+            });
+            activeLink.classList.add('bg-background', 'dark:bg-background-dark');
+        }
+
+        function loadContent(url, activeLink) {
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    profileContent.innerHTML = html;
+                    setActiveLink(activeLink);
+                })
+                .catch(error => console.error('Error loading content:', error));
+        }
+
+        // Set initial active link
+        setActiveLink(profileLink);
+
+        profileLink.addEventListener('click', function() {
+            location.reload(); // Simple reload for now, can be optimized later
+        });
+
+        editProfileLink.addEventListener('click', function() {
+            loadContent(this.dataset.url, this);
+        });
+
+        changePasswordLink.addEventListener('click', function() {
+            loadContent(this.dataset.url, this);
+        });
+    });
+  </script>
   {% endblock content %}

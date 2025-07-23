@@ -7,7 +7,6 @@
         <div class="flex justify-between items-center">
           <a href="{% url 'home' %}" class="text-xl font-bold text-text-primary dark:text-text-primary-dark flex items-center">
             <svg width="120" height="30" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="120" height="30" fill="#F0F4F8"/>
                 <text x="5" y="22" font-family="Arial, sans-serif" font-size="20" font-weight="bold">
                     <tspan fill="#4299E1">Task</tspan><tspan fill="#667EEA">Nest</tspan>
                 </text>
@@ -31,10 +30,22 @@
               >Create Group</a
             >
           </div>
-          <div class="flex items-center gap-1">
+          <div class="flex items-center gap-8">
             <button id="theme-toggle" type="button" class="text-text-muted dark:text-text-muted-dark hover:bg-background dark:hover:bg-surface-dark focus:outline-none focus:ring-4 focus:ring-border dark:focus:ring-border-dark rounded-lg text-sm p-2.5">
-              <svg id="theme-toggle-dark-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.292 8.625A8.001 8.001 0 002.925 13.29c-.11.33-.11.67 0 1a8.001 8.001 0 0014.367-5.915c.002-.002.002-.002.002-.002z"></path></svg>
-              <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.459 4.591A1 1 0 0115 15a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 01.459.091zM10 18a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM4.591 13.541A1 1 0 013 15a1 1 0 01-1-1v-1a1 1 0 112 0v1a1 1 0 01-.091.459zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM4.591 6.459A1 1 0 015 5a1 1 0 011-1h1a1 1 0 110 2H6a1 1 0 01-.091-.459zM12 4a1 1 0 011-1v-1a1 1 0 11-2 0v1a1 1 0 011 1z"></path></svg>
+              <svg id="theme-toggle-dark-icon" class="w-5 h-5 text-gray-100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <svg id="theme-toggle-light-icon" class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
             </button>
             <div class="relative">
               <button
@@ -107,9 +118,7 @@
     </header>
 
     <main>
-     {% block content %}
         {% include "admin/user_list.html" %}
-     {% endblock content %}
     </main>
 
     <script>
