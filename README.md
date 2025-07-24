@@ -10,6 +10,10 @@ A modern web-based task management system built with Django and Tailwind CSS.
 ![Built with Django](https://img.shields.io/badge/Built_with-Django-green?logo=django&logoColor=white)
 ![Built with Tailwind](https://img.shields.io/badge/Styled_with-TailwindCSS-blue?logo=tailwindcss)
 
+## 📌 About
+
+**TaskNest** is a full-featured task management system designed for teams and individuals to collaborate efficiently. Built with Django and Tailwind CSS, it supports user roles, project/task tracking, and real-time email notifications.
+
 ## Features
 
 ### User Management
@@ -64,101 +68,103 @@ A modern web-based task management system built with Django and Tailwind CSS.
 
 ## 📸 Screenshots
 
+ℹ️ Note: This project is currently not deployed live due to paid service limitations. However, you can explore its full functionality through the provided screenshots and detailed instructions below.
+
 ### 🏠 Home Page
 
 **Light Mode**
 
-![Home Page (Light)](screenshots/light_logout_home.png)
+![Home Page (Light) screenshot](screenshots/light_logout_home.png)
 
 **Dark Mode**
 
-![Home Page (Dark)](screenshots/dark_logout_home.png)
+![Home Page (Dark) screenshot](screenshots/dark_logout_home.png)
 
 ### 🔐 Authentication
 
 **Registration**
 
-![Registration Page](screenshots/register_page.png)
+![Registration Page screenshot](screenshots/register_page.png)
 
 ### 🚀 Core Features
 
 **Manager Dashboard**
 
-![Manager Dashboard](screenshots/manager_dashboard.png)
+![Manager Dashboard screenshot](screenshots/manager_dashboard.png)
 
 **Light Manager Dashboard**
 
-![Light Manager Dashboard](screenshots/light_manager_dashboard.png)
+![Light Manager Dashboard screenshot](screenshots/light_manager_dashboard.png)
 
 **Task Status**
 
 - **To-Do**
 
-![To-Do Tasks](screenshots/todo_task.png)
+![To-Do Tasks screenshot](screenshots/todo_task.png)
 
 - **In Progress**
 
-![In Progress Tasks](screenshots/inprogress_task.png)
+![In Progress Tasks screenshot](screenshots/inprogress_task.png)
 
 - **Completed**
 
-![Completed Tasks](screenshots/completed_task.png)
+![Completed Tasks screenshot](screenshots/completed_task.png)
 
 **All Projects**
 
-![All Projects](screenshots/all_projects.png)
+![All Projects screenshot](screenshots/all_projects.png)
 
 **Task Form**
 
-![Task Form](screenshots/task_form.png)
+![Task Form screenshot](screenshots/task_form.png)
 
 ### 👤 User Profile
 
 **User Profile**
 
-![User Profile](screenshots/user_profile.png)
+![User Profile screenshot](screenshots/user_profile.png)
 
 **Edit Profile**
 
-![Edit Profile](screenshots/edit_profile.png)
+![Edit Profile screenshot](screenshots/edit_profile.png)
 
 **Change Password**
 
-![Change Password](screenshots/cange_password.png)
+![Change Password screenshot](screenshots/change_password.png)
 
 ### 📄 Additional Pages
 
 **Feature Page**
 
-![Feature Page](screenshots/feature_page.png)
+![Feature Page screenshot](screenshots/feature_page.png)
 
 **Pricing Page**
 
-![Pricing Page](screenshots/pricing_page.png)
+![Pricing Page screenshot](screenshots/pricing_page.png)
 
 **Contact Page**
 
-![Contact Page](screenshots/contact_page.png)
+![Contact Page screenshot](screenshots/contact_page.png)
 
 ### 📱 Responsive Design
 
 **Home Page**
 
-![Responsive Home](screenshots/responsive_home.png)
+![Responsive Home screenshot](screenshots/responsive_home.png)
 
 **Pricing Page**
 
-![Responsive Pricing](screenshots/responsive_pricing.png)
+![Responsive Pricing screenshot](screenshots/responsive_pricing.png)
 
 **Contact Page**
 
-![Responsive Contact](screenshots/responsive_contact.png)
+![Responsive Contact screenshot](screenshots/responsive_contact.png)
 
 ### ⚙️ Admin Panel
 
 **Django Admin**
 
-![Django Admin](screenshots/dj_admin_panel.png)
+![Django Admin screenshot](screenshots/dj_admin_panel.png)
 
 ## Setup and Installation
 
@@ -173,7 +179,7 @@ Follow these steps to set up and run the project locally.
 ### 1. Clone the repository
 
 ```bash
-git clone <[repository_url](https://github.com/MrMADS28289/task_management)>
+git clone https://github.com/MrMADS28289/task_management.git
 cd tasknest
 ```
 
@@ -229,7 +235,7 @@ Also, update `ALLOWED_HOSTS` in `tasknest/settings.py` with your production doma
 To generate a `SECRET_KEY`, run:
 
 ```bash
-python generate_secret_key.py
+python manage.py get_random_secret_key
 ```
 
 ### 6. Database Setup (PostgreSQL)
@@ -325,9 +331,7 @@ media/
 | PUT    | /tasks/update/{id}/ | Update task       |
 | DELETE | /tasks/delete/{id}/ | Delete task       |
 
-<!-- SEO -->
-<meta name="title" content="Task Management System | Django + Tailwind">
-<meta name="description" content="A full-featured task management system built with Django and Tailwind CSS featuring user roles, task/project management, and PostgreSQL.">
+> **SEO-Optimized:** Easily indexable by recruiters and search engines via clear descriptions and rich documentation.
 
 ## 🧰 Technologies Used
 
@@ -335,6 +339,21 @@ media/
 - **Frontend:** HTML, Tailwind CSS, minimal JS
 - **Styling:** Tailwind CSS
 - **Environment:** Python-decouple, Ruff, Mypy
+
+## 🧭 Roadmap
+
+- [x] User authentication and profiles
+- [x] Project and task CRUD
+- [x] Role-based access
+- [x] Email notifications
+- [ ] Notifications UI
+- [ ] REST API for frontend frameworks
+- [ ] Real-time updates with Django Channels
+
+## 🐛 Known Issues
+
+- Task deletion does not remove associated media files.
+- Email sometimes goes to spam during password reset.
 
 ## Contributing
 
