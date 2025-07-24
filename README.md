@@ -62,16 +62,103 @@ A modern web-based task management system built with Django and Tailwind CSS.
 - Static and media file handling.
 - Email sending for account activation and task assignment.
 
-## 🔗 Live Demo
+## 📸 Screenshots
 
-👉 [https://your-domain.com](https://your-domain.com)
+### 🏠 Home Page
 
-## 🧪 Demo Credentials
+**Light Mode**
 
-**Admin**
+![Home Page (Light)](screenshots/light_logout_home.png)
 
-- Username: `admin`
-- Password: `123456`
+**Dark Mode**
+
+![Home Page (Dark)](screenshots/dark_logout_home.png)
+
+### 🔐 Authentication
+
+**Registration**
+
+![Registration Page](screenshots/register_page.png)
+
+### 🚀 Core Features
+
+**Manager Dashboard**
+
+![Manager Dashboard](screenshots/manager_dashboard.png)
+
+**Light Manager Dashboard**
+
+![Light Manager Dashboard](screenshots/light_manager_dashboard.png)
+
+**Task Status**
+
+- **To-Do**
+
+![To-Do Tasks](screenshots/todo_task.png)
+
+- **In Progress**
+
+![In Progress Tasks](screenshots/inprogress_task.png)
+
+- **Completed**
+
+![Completed Tasks](screenshots/completed_task.png)
+
+**All Projects**
+
+![All Projects](screenshots/all_projects.png)
+
+**Task Form**
+
+![Task Form](screenshots/task_form.png)
+
+### 👤 User Profile
+
+**User Profile**
+
+![User Profile](screenshots/user_profile.png)
+
+**Edit Profile**
+
+![Edit Profile](screenshots/edit_profile.png)
+
+**Change Password**
+
+![Change Password](screenshots/cange_password.png)
+
+### 📄 Additional Pages
+
+**Feature Page**
+
+![Feature Page](screenshots/feature_page.png)
+
+**Pricing Page**
+
+![Pricing Page](screenshots/pricing_page.png)
+
+**Contact Page**
+
+![Contact Page](screenshots/contact_page.png)
+
+### 📱 Responsive Design
+
+**Home Page**
+
+![Responsive Home](screenshots/responsive_home.png)
+
+**Pricing Page**
+
+![Responsive Pricing](screenshots/responsive_pricing.png)
+
+**Contact Page**
+
+![Responsive Contact](screenshots/responsive_contact.png)
+
+### ⚙️ Admin Panel
+
+**Django Admin**
+
+![Django Admin](screenshots/dj_admin_panel.png)
 
 ## Setup and Installation
 
